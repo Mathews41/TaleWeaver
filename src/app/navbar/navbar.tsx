@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import taleweaver from "../taleweaver.png";
+import WalletConnect from "../components/walletConnect";
 
 const Navbar = () => {
   return (
@@ -19,6 +20,9 @@ const Navbar = () => {
           <a href='/about' className='text-white text-lg'>
             About
           </a>
+        </div>
+        <div className='mr-4'>
+          <WalletConnect />
         </div>
       </div>
     </nav>

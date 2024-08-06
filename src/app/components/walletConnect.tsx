@@ -1,7 +1,12 @@
+"use client";
 import React, { useState } from "react";
 import { ethers } from "ethers";
 
-
+declare global {
+  interface Window {
+    ethereum: any;
+  }
+}
 
 const WalletConnect = () => {
   const [connected, setConnected] = useState(false);
@@ -11,9 +16,9 @@ const WalletConnect = () => {
   const connectWallet = async () => {
     if (window.ethereum) {
       try {
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const provider = new ethers.BrowserProvider(window.ethereum);
         await provider.send("eth_requestAccounts", []);
-        const signer = provider.getSigner();
+        const signer = await provider.getSigner(); // Await the getSigner() method
         const address = await signer.getAddress();
         setConnected(true);
         setWalletAddress(address);
@@ -27,7 +32,9 @@ const WalletConnect = () => {
 
   return (
     <div className='wallet-connect'>
-      <button onClick={connectWallet}>
+      <button
+        className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+        onClick={connectWallet}>
         {connected ? "Disconnect Wallet" : "Connect Wallet"}
       </button>
       {connected && (
