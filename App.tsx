@@ -3,7 +3,7 @@ import { ethers } from "ethers";
 import { NFT } from "./types";
 // Removed mock NFTs; we load from wallet instead
 import { fetchUserNfts } from "./services/nftService";
-import { generateStory } from "./services/ollamaService";
+import { generateStory } from "./services/storyService";
 
 import Header from "./components/Header";
 import NftGallery from "./components/NftGallery";
