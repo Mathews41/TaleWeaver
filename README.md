@@ -35,7 +35,7 @@ View your app in AI Studio: https://ai.studio/apps/drive/1hAlj8qA0Flht8yM6rdz7JE
 
 ## Deploy to Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/nft-story-weaver)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Mathews41/TaleWeaver)
 
 ### Manual Deployment
 
