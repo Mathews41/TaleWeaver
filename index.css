@@ -1,0 +1,843 @@
+/* Pixel Art Theme for TALE WEAVER */
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+:root {
+  /* Pixel Art Green Palette */
+  --pixel-green-light: #66ff00;
+  --pixel-green-medium: #00aa00;
+  --pixel-green-dark: #005500;
+  --pixel-green-darker: #003300;
+
+  /* Stone/Gray Palette */
+  --pixel-stone-light: #c0c0c0;
+  --pixel-stone-medium: #808080;
+  --pixel-stone-dark: #404040;
+  --pixel-stone-darker: #202020;
+
+  /* Text Colors */
+  --pixel-text-light: #ffffff;
+  --pixel-text-gray: #bebebe;
+  --pixel-text-dark: #505050;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Press Start 2P", monospace;
+  background-color: #1a1a1a;
+  color: var(--pixel-text-light);
+  line-height: 1.6;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Pixel Art Logo Styles */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-image {
+  height: 80px;
+  width: auto;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  filter: drop-shadow(3px 3px 0px var(--pixel-green-dark));
+}
+
+.logo-text {
+  font-family: "Press Start 2P", monospace;
+  font-size: 24px;
+  color: var(--pixel-text-light);
+  text-shadow: 2px 2px 0px var(--pixel-green-dark);
+  letter-spacing: 2px;
+}
+
+.logo-subtitle {
+  font-size: 8px;
+  color: var(--pixel-green-medium);
+  margin-top: 4px;
+}
+
+/* Pixel Art Buttons */
+.pixel-button {
+  font-family: "Press Start 2P", monospace;
+  font-size: 10px;
+  padding: 8px 16px;
+  border: 2px solid var(--pixel-green-medium);
+  background: var(--pixel-green-dark);
+  color: var(--pixel-text-light);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  image-rendering: pixelated;
+  position: relative;
+  overflow: hidden;
+}
+
+.pixel-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--pixel-green-light),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.pixel-button:hover {
+  background: var(--pixel-green-medium);
+  border-color: var(--pixel-green-light);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px var(--pixel-green-darker),
+    8px 8px 0px rgba(0, 85, 0, 0.3);
+  color: var(--pixel-text-light);
+  text-shadow: 1px 1px 0px var(--pixel-green-darker);
+}
+
+.pixel-button:hover::before {
+  left: 100%;
+}
+
+.pixel-button:active {
+  transform: translate(0px, 0px);
+  box-shadow: 2px 2px 0px var(--pixel-green-darker);
+  transition: all 0.1s ease;
+}
+
+.pixel-button-secondary {
+  border-color: var(--pixel-stone-medium);
+  background: var(--pixel-stone-dark);
+  color: var(--pixel-text-gray);
+}
+
+.pixel-button-secondary::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--pixel-stone-light),
+    transparent
+  );
+}
+
+.pixel-button-secondary:hover {
+  background: var(--pixel-stone-medium);
+  border-color: var(--pixel-stone-light);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px var(--pixel-stone-darker),
+    8px 8px 0px rgba(64, 64, 64, 0.3);
+  color: var(--pixel-text-light);
+  text-shadow: 1px 1px 0px var(--pixel-stone-darker);
+}
+
+/* Pixel Art Cards */
+.pixel-card {
+  background: var(--pixel-stone-darker);
+  border: 2px solid var(--pixel-stone-medium);
+  padding: 16px;
+  image-rendering: pixelated;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.pixel-card:hover {
+  border-color: var(--pixel-green-medium);
+  box-shadow: 4px 4px 0px var(--pixel-green-dark),
+    8px 8px 0px rgba(0, 85, 0, 0.1);
+  transform: translate(-1px, -1px);
+}
+
+.pixel-card-header {
+  background: var(--pixel-green-dark);
+  border-bottom: 2px solid var(--pixel-green-medium);
+  margin: -16px -16px 16px -16px;
+  padding: 12px 16px;
+  color: var(--pixel-text-light);
+}
+
+/* Pixel Art Background Patterns */
+.pixel-bg-pattern {
+  background-color: #1a1a1a;
+  background-image: 
+    /* Very subtle dotted pattern */ radial-gradient(
+      circle at 25% 25%,
+      var(--pixel-green-darker) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      var(--pixel-green-dark) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px, 32px 32px;
+  background-position: 0 0, 24px 24px;
+  position: relative;
+}
+
+.pixel-bg-pattern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    /* Very subtle scattered dots */ radial-gradient(
+      circle at 20% 20%,
+      var(--pixel-green-darker) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      var(--pixel-green-darker) 1px,
+      transparent 1px
+    );
+  background-size: 200px 200px, 150px 150px;
+  background-position: 0 0, 100px 100px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.vine-border {
+  position: relative;
+  border: 3px solid var(--pixel-green-medium);
+  background: linear-gradient(
+    45deg,
+    var(--pixel-green-dark) 25%,
+    transparent 25%,
+    transparent 75%,
+    var(--pixel-green-dark) 75%
+  );
+  background-size: 8px 8px;
+}
+
+.vine-border::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  background: var(--pixel-green-dark);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+/* Pixel Art Text Styles */
+.pixel-title {
+  font-family: "Press Start 2P", monospace;
+  font-size: 20px;
+  color: var(--pixel-text-light);
+  text-shadow: 2px 2px 0px var(--pixel-green-dark);
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
+.pixel-subtitle {
+  font-family: "Press Start 2P", monospace;
+  font-size: 12px;
+  color: var(--pixel-green-medium);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.pixel-text {
+  font-family: "Press Start 2P", monospace;
+  font-size: 8px;
+  color: var(--pixel-text-gray);
+  line-height: 1.8;
+}
+
+/* Pixel Art Input Styles */
+.pixel-input {
+  font-family: "Press Start 2P", monospace;
+  font-size: 10px;
+  padding: 8px 12px;
+  border: 2px solid var(--pixel-stone-medium);
+  background: var(--pixel-stone-darker);
+  color: var(--pixel-text-light);
+  width: 100%;
+  image-rendering: pixelated;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.pixel-input:hover {
+  border-color: var(--pixel-green-medium);
+  background: var(--pixel-stone-dark);
+  box-shadow: 2px 2px 0px var(--pixel-green-dark),
+    4px 4px 0px rgba(0, 85, 0, 0.1);
+  transform: translate(-1px, -1px);
+}
+
+.pixel-input:focus {
+  outline: none;
+  border-color: var(--pixel-green-light);
+  box-shadow: 0 0 0 2px var(--pixel-green-dark),
+    4px 4px 0px var(--pixel-green-medium), 8px 8px 0px rgba(0, 170, 0, 0.2);
+  transform: translate(-2px, -2px);
+  background: var(--pixel-stone-light);
+  color: var(--pixel-text-dark);
+}
+
+.pixel-textarea {
+  font-family: "Press Start 2P", monospace;
+  font-size: 10px;
+  padding: 8px 12px;
+  border: 2px solid var(--pixel-stone-medium);
+  background: var(--pixel-stone-darker);
+  color: var(--pixel-text-light);
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  image-rendering: pixelated;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.pixel-textarea:hover {
+  border-color: var(--pixel-green-medium);
+  background: var(--pixel-stone-dark);
+  box-shadow: 2px 2px 0px var(--pixel-green-dark),
+    4px 4px 0px rgba(0, 85, 0, 0.1);
+  transform: translate(-1px, -1px);
+}
+
+.pixel-textarea:focus {
+  outline: none;
+  border-color: var(--pixel-green-light);
+  box-shadow: 0 0 0 2px var(--pixel-green-dark),
+    4px 4px 0px var(--pixel-green-medium), 8px 8px 0px rgba(0, 170, 0, 0.2);
+  transform: translate(-2px, -2px);
+  background: var(--pixel-stone-light);
+  color: var(--pixel-text-dark);
+}
+
+/* Pixel Art Modal */
+.pixel-modal {
+  background: var(--pixel-stone-darker);
+  border: 3px solid var(--pixel-green-medium);
+  box-shadow: 4px 4px 0px var(--pixel-green-darker);
+}
+
+.pixel-modal-header {
+  background: var(--pixel-green-dark);
+  border-bottom: 2px solid var(--pixel-green-medium);
+  padding: 16px;
+  color: var(--pixel-text-light);
+}
+
+/* Pixel Art Loading Animation */
+.pixel-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--pixel-stone-dark);
+  border-top: 3px solid var(--pixel-green-medium);
+  border-radius: 0;
+  animation: pixel-spin 1s linear infinite;
+  image-rendering: pixelated;
+}
+
+@keyframes pixel-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fun Typewriter Animation */
+.typewriter-container {
+  font-family: "Press Start 2P", monospace;
+  font-size: 12px;
+  line-height: 2.2;
+  color: var(--pixel-text-gray);
+  overflow: hidden;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.typewriter-container strong,
+.typewriter-container b {
+  color: var(--pixel-green-light);
+  text-shadow: 1px 1px 0px var(--pixel-green-dark);
+  font-weight: normal; /* Press Start 2P doesn't have bold */
+}
+
+.typewriter-container em,
+.typewriter-container i {
+  color: var(--pixel-green-medium);
+  font-style: normal; /* Press Start 2P doesn't have italic */
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 12px;
+  height: 16px;
+  background-color: var(--pixel-green-medium);
+  animation: typewriter-blink 1s infinite;
+  margin-left: 3px;
+}
+
+@keyframes typewriter-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Fun Story Loading Animation */
+.story-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  gap: 16px;
+}
+
+.weaving-animation {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  image-rendering: pixelated;
+}
+
+.weaving-loom {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 3px solid var(--pixel-green-medium);
+  background: var(--pixel-green-dark);
+  border-radius: 0;
+}
+
+/* Warp threads (vertical) */
+.warp-thread {
+  position: absolute;
+  width: 2px;
+  height: 80px;
+  background: var(--pixel-green-medium);
+  opacity: 0.7;
+}
+
+.warp-thread:nth-child(2) {
+  left: 10px;
+  animation: warp-pulse 1.5s ease-in-out infinite;
+}
+.warp-thread:nth-child(3) {
+  left: 20px;
+  animation: warp-pulse 1.5s ease-in-out infinite 0.2s;
+}
+.warp-thread:nth-child(4) {
+  left: 30px;
+  animation: warp-pulse 1.5s ease-in-out infinite 0.4s;
+}
+.warp-thread:nth-child(5) {
+  left: 40px;
+  animation: warp-pulse 1.5s ease-in-out infinite 0.6s;
+}
+.warp-thread:nth-child(6) {
+  left: 50px;
+  animation: warp-pulse 1.5s ease-in-out infinite 0.8s;
+}
+.warp-thread:nth-child(7) {
+  left: 60px;
+  animation: warp-pulse 1.5s ease-in-out infinite 1s;
+}
+.warp-thread:nth-child(8) {
+  left: 70px;
+  animation: warp-pulse 1.5s ease-in-out infinite 1.2s;
+}
+
+/* Weft threads (horizontal weaving) */
+.weft-thread {
+  position: absolute;
+  width: 80px;
+  height: 3px;
+  background: var(--pixel-green-light);
+  animation: weft-weave 2.5s ease-in-out infinite;
+}
+
+.weft-thread:nth-child(9) {
+  animation-delay: 0s;
+  top: 15px;
+}
+
+.weft-thread:nth-child(10) {
+  animation-delay: 0.5s;
+  top: 35px;
+  background: var(--pixel-green-medium);
+}
+
+.weft-thread:nth-child(11) {
+  animation-delay: 1s;
+  top: 55px;
+  background: var(--pixel-green-light);
+}
+
+.weft-thread:nth-child(12) {
+  animation-delay: 1.5s;
+  top: 25px;
+  background: var(--pixel-green-medium);
+}
+
+.weft-thread:nth-child(13) {
+  animation-delay: 2s;
+  top: 45px;
+  background: var(--pixel-green-light);
+}
+
+/* Stitching needles */
+.stitch-needle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--pixel-text-light);
+  animation: stitch-move 3s linear infinite;
+}
+
+.stitch-needle:nth-child(14) {
+  animation-delay: 0s;
+}
+
+.stitch-needle:nth-child(15) {
+  animation-delay: 1s;
+  background: var(--pixel-green-light);
+}
+
+.stitch-needle:nth-child(16) {
+  animation-delay: 2s;
+  background: var(--pixel-green-medium);
+}
+
+@keyframes warp-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes weft-weave {
+  0% {
+    left: -80px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 80px;
+    opacity: 0;
+  }
+}
+
+@keyframes stitch-move {
+  0% {
+    top: 5px;
+    left: 5px;
+    transform: rotate(0deg);
+  }
+  25% {
+    top: 5px;
+    left: 75px;
+    transform: rotate(90deg);
+  }
+  50% {
+    top: 75px;
+    left: 75px;
+    transform: rotate(180deg);
+  }
+  75% {
+    top: 75px;
+    left: 5px;
+    transform: rotate(270deg);
+  }
+  100% {
+    top: 5px;
+    left: 5px;
+    transform: rotate(360deg);
+  }
+}
+
+.weaving-text {
+  font-family: "Press Start 2P", monospace;
+  font-size: 10px;
+  color: var(--pixel-green-medium);
+  text-align: center;
+  animation: weaving-pulse 2s ease-in-out infinite;
+}
+
+@keyframes weaving-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.weaving-subtext {
+  font-family: "Press Start 2P", monospace;
+  font-size: 6px;
+  color: var(--pixel-text-gray);
+  text-align: center;
+}
+
+/* Pixel Art Grid */
+.pixel-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+/* Pixel Art NFT Card */
+.nft-pixel-card {
+  background: var(--pixel-stone-darker);
+  border: 2px solid var(--pixel-stone-medium);
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  image-rendering: pixelated;
+  position: relative;
+  overflow: hidden;
+}
+
+.nft-pixel-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(102, 255, 0, 0.1),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.nft-pixel-card:hover {
+  border-color: var(--pixel-green-medium);
+  transform: translate(-3px, -3px) scale(1.02);
+  box-shadow: 6px 6px 0px var(--pixel-green-dark),
+    12px 12px 0px rgba(0, 85, 0, 0.2);
+  background: var(--pixel-stone-dark);
+}
+
+.nft-pixel-card:hover::before {
+  left: 100%;
+}
+
+.nft-pixel-card:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.1) contrast(1.1);
+}
+
+.nft-pixel-card img {
+  transition: all 0.3s ease;
+}
+
+.nft-pixel-card.selected {
+  border-color: var(--pixel-green-light);
+  background: var(--pixel-green-dark);
+  box-shadow: 6px 6px 0px var(--pixel-green-medium),
+    12px 12px 0px rgba(0, 170, 0, 0.3);
+  transform: translate(-1px, -1px);
+}
+
+.nft-pixel-card.selected::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(102, 255, 0, 0.2),
+    transparent
+  );
+  left: 100%;
+}
+
+.nft-pixel-card img {
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  border: 1px solid var(--pixel-stone-medium);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logo-image {
+    height: 64px !important;
+  }
+
+  .logo-text {
+    font-size: 14px;
+  }
+
+  .pixel-title {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .pixel-subtitle {
+    font-size: 8px;
+    margin-bottom: 6px;
+  }
+
+  .pixel-text {
+    font-size: 6px;
+    line-height: 1.6;
+  }
+
+  .typewriter-container {
+    font-size: 10px;
+    line-height: 2;
+  }
+
+  .pixel-button {
+    font-size: 7px;
+    padding: 6px 10px;
+    min-height: 32px;
+  }
+
+  .pixel-input,
+  .pixel-textarea {
+    font-size: 8px;
+    padding: 6px 8px;
+  }
+
+  .pixel-card {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .nft-pixel-card {
+    padding: 8px;
+  }
+
+  .nft-pixel-card img {
+    height: 120px;
+  }
+
+  .pixel-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .vine-border {
+    border-width: 2px;
+  }
+
+  /* Mobile-specific adjustments */
+  .pixel-modal {
+    margin: 8px;
+    max-height: calc(100vh - 16px);
+  }
+
+  .pixel-modal-header {
+    padding: 12px;
+  }
+
+  /* Floating status indicator mobile */
+  .fixed.bottom-4.right-4 {
+    bottom: 8px;
+    right: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-image {
+    height: 56px !important;
+  }
+
+  .logo-text {
+    font-size: 12px;
+  }
+
+  .pixel-title {
+    font-size: 12px;
+  }
+
+  .pixel-subtitle {
+    font-size: 7px;
+  }
+
+  .pixel-text {
+    font-size: 5px;
+  }
+
+  .typewriter-container {
+    font-size: 8px;
+    line-height: 1.8;
+  }
+
+  .pixel-button {
+    font-size: 6px;
+    padding: 4px 8px;
+    min-height: 28px;
+  }
+
+  .pixel-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 8px;
+  }
+
+  .nft-pixel-card img {
+    height: 100px;
+  }
+
+  .pixel-card {
+    padding: 8px;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pixel-stone-darker);
+  border: 1px solid var(--pixel-stone-medium);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pixel-green-dark);
+  border: 1px solid var(--pixel-green-medium);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pixel-green-medium);
+}
